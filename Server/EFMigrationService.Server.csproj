@@ -8,9 +8,14 @@
     <PackageReference Include="CliWrap" Version="3.6.6" />
 
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client.Core" Version="8.0.8" />
+    
+    <PackageReference Include="Serilog.Sinks.OpenTelemetry" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RaptorUtils\AspNet\RaptorUtils.AspNet.csproj" />
+    <ProjectReference Include="..\RaptorUtils\Core\RaptorUtils.Core.csproj" />
+    <ProjectReference Include="..\RaptorUtils\WebAppPlugins\SerilogWebAppPlugin\RaptorUtils.SerilogWebAppPlugin.csproj" />
   </ItemGroup>
 
 </Project>

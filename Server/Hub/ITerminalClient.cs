@@ -1,4 +1,4 @@
-﻿namespace MrHotel.MigrationService;
+﻿namespace EFMigrationService.Server.Hub;
 
 public interface ITerminalClient
 {

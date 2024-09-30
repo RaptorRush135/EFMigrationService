@@ -1,11 +1,11 @@
-﻿namespace MrHotel.MigrationService;
+﻿namespace EFMigrationService.Server.EFCommandHandler;
 
 using CliWrap;
 using CliWrap.Buffered;
 using CliWrap.Builders;
 using CliWrap.Exceptions;
 
-using MrHotel.Shared.Threading;
+using RaptorUtils.Threading;
 
 internal class EFCommandHandler(IEnumerable<string> args)
 {
@@ -41,8 +41,6 @@ internal class EFCommandHandler(IEnumerable<string> args)
 
     private static string CreateArgs(IEnumerable<string> args)
     {
-        var builder = new ArgumentsBuilder();
-        builder.Add(args);
-        return builder.Build();
+        return new ArgumentsBuilder().Add(args).Build();
     }
 }

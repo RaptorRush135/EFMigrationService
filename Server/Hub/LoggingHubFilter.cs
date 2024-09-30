@@ -1,11 +1,11 @@
-namespace MrHotel.MigrationService;
+namespace EFMigrationService.Server.Hub;
 
 using Microsoft.AspNetCore.SignalR;
 
 using Serilog;
 using Serilog.Context;
 
-public class LoggingHubFilter : IHubFilter
+internal class LoggingHubFilter : IHubFilter
 {
     public async ValueTask<object?> InvokeMethodAsync(HubInvocationContext invocationContext, Func<HubInvocationContext, ValueTask<object?>> next)
     {

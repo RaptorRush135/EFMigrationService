@@ -1,14 +1,15 @@
-﻿namespace MrHotel.MigrationService;
+﻿namespace EFMigrationService.Server;
 
 using System.Threading.Tasks;
+
+using EFMigrationService.Server.EFCommandHandler;
+using EFMigrationService.Server.Hub;
+using EFMigrationService.Server.WebAppSettings;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.SignalR;
 
-using MrHotel.ServiceDefaults.Applications;
-using MrHotel.Shared.Extensions.Configuration;
-
-internal class MigrationService : MrHotelWebAppDefinition
+internal class MigrationService : EFMigrationServiceWebAppDefinition
 {
     protected override async Task ConfigureServices(WebApplicationBuilder builder)
     {
@@ -16,9 +17,7 @@ internal class MigrationService : MrHotelWebAppDefinition
 
         builder.Services.AddSignalR(options => options.AddFilter<LoggingHubFilter>());
 
-        string project = builder.Configuration.GetRequired("db-project");
-        var commandHandler = new EFCommandHandler("--project", project, "--startup-project", project);
-        builder.Services.AddSingleton(commandHandler);
+        builder.Services.AddEFCommandHandler(builder.Configuration);
     }
 
     protected override async Task Configure(WebApplication app)

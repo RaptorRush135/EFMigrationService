@@ -1,6 +1,8 @@
-﻿namespace MrHotel.MigrationService;
+﻿namespace EFMigrationService.Server.Hub;
 
 using CliWrap;
+
+using EFMigrationService.Server.EFCommandHandler;
 
 using Microsoft.AspNetCore.SignalR;
 
