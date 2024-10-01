@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFMigrationService.Integration", "EFMigrationService.Integration.csproj", "{49B066F0-701A-4960-9BF6-2EE6273BF406}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RaptorUtils.Core", "..\RaptorUtils\Core\RaptorUtils.Core.csproj", "{FCC58833-644B-4F5A-9AD2-49A07BD00097}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49B066F0-701A-4960-9BF6-2EE6273BF406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49B066F0-701A-4960-9BF6-2EE6273BF406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49B066F0-701A-4960-9BF6-2EE6273BF406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49B066F0-701A-4960-9BF6-2EE6273BF406}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCC58833-644B-4F5A-9AD2-49A07BD00097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCC58833-644B-4F5A-9AD2-49A07BD00097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCC58833-644B-4F5A-9AD2-49A07BD00097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCC58833-644B-4F5A-9AD2-49A07BD00097}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D556085D-854C-4B32-8986-93C2D012CC42}
+	EndGlobalSection
+EndGlobal

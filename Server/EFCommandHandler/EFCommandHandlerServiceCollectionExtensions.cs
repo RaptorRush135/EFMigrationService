@@ -1,19 +1,22 @@
 ﻿namespace EFMigrationService.Server.EFCommandHandler;
 
+using EFMigrationService.Integration;
+
 using RaptorUtils.Extensions.Configuration;
 
-public static class EFCommandHandlerServiceCollectionExtensions
+internal static class EFCommandHandlerServiceCollectionExtensions
 {
-    private const string TargetProjectKey = "--project";
-
-    private const string StartupProjectKey = "--startup-project";
-
     public static void AddEFCommandHandler(this IServiceCollection services, IConfiguration configuration)
     {
-        string project = configuration.GetRequired(TargetProjectKey);
-        string startupProject = configuration.GetRequired(StartupProjectKey);
+        string targetProject = configuration.GetRequired(MigrationServiceEnvironmentVariables.TargetProject);
+        string startupProject = configuration.GetRequired(MigrationServiceEnvironmentVariables.StartupProject);
 
-        var commandHandler = new EFCommandHandler(TargetProjectKey, project, StartupProjectKey, startupProject);
+        var commandHandler = new EFCommandHandler(
+            MigrationServiceEnvironmentVariables.TargetProject,
+            targetProject,
+            MigrationServiceEnvironmentVariables.StartupProject,
+            startupProject);
+
         services.AddSingleton(commandHandler);
     }
 }

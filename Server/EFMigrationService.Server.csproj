@@ -13,6 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Integration\EFMigrationService.Integration.csproj" />
+    
     <ProjectReference Include="..\RaptorUtils\AspNet\RaptorUtils.AspNet.csproj" />
     <ProjectReference Include="..\RaptorUtils\Core\RaptorUtils.Core.csproj" />
     <ProjectReference Include="..\RaptorUtils\WebAppPlugins\SerilogWebAppPlugin\RaptorUtils.SerilogWebAppPlugin.csproj" />
