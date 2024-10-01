@@ -8,7 +8,6 @@
 
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>CS1591;SA1600;SA1601;SA1602;SA1633</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
