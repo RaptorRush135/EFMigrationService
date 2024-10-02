@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFMigrationService.Integrat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RaptorUtils.Core", "..\RaptorUtils\Core\RaptorUtils.Core.csproj", "{FCC58833-644B-4F5A-9AD2-49A07BD00097}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RaptorUtils.Aspire.Hosting.NodeJs", "..\RaptorUtils\Aspire\Aspire.Hosting.NodeJs\RaptorUtils.Aspire.Hosting.NodeJs.csproj", "{1B29E67E-50B3-42E5-8C16-F2921CD9E061}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FCC58833-644B-4F5A-9AD2-49A07BD00097}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCC58833-644B-4F5A-9AD2-49A07BD00097}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCC58833-644B-4F5A-9AD2-49A07BD00097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B29E67E-50B3-42E5-8C16-F2921CD9E061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B29E67E-50B3-42E5-8C16-F2921CD9E061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B29E67E-50B3-42E5-8C16-F2921CD9E061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B29E67E-50B3-42E5-8C16-F2921CD9E061}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

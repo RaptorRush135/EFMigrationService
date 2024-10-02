@@ -6,10 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting" Version="8.2.1" />
+    <PackageReference Include="Aspire.Hosting.NodeJs" Version="8.2.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RaptorUtils\Core\RaptorUtils.Core.csproj" />
+    <ProjectReference Include="..\RaptorUtils\Aspire\Aspire.Hosting.NodeJs\RaptorUtils.Aspire.Hosting.NodeJs.csproj" />
   </ItemGroup>
 
 </Project>

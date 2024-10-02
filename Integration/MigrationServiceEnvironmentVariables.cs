@@ -27,4 +27,9 @@ public static class MigrationServiceEnvironmentVariables
     /// Environment variable that determines if EF migration services should be started.
     /// </summary>
     public const string DatabaseMigrationMode = "DB_MIGRATION";
+
+    /// <summary>
+    /// The environment variable key used to specify the server URL for the migration client.
+    /// </summary>
+    public const string MigrationClientServerUrl = "SERVER_URL";
 }
