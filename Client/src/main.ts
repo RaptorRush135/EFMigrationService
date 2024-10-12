@@ -2,22 +2,22 @@ import { EventToPromiseConverter } from './event-to-promise-converter';
 import { TerminalEmulator } from './terminal-emulator';
 import * as signalR from "@microsoft/signalr";
 
-const serverUrl = process.env.SERVER_URL;
+const terminal = new TerminalEmulator(document.getElementById('terminal')!);
+
+let serverUrl: string | undefined = process.env.SERVER_URL;
 
 if (!serverUrl) {
-  throw new Error("SERVER_URL not defined");
+  serverUrl = await terminal.prompt("Server URL: ")
+} else {
+  terminal.writeLine(`Server URL: ${serverUrl}`);
 }
-
-console.log("Server url: " + serverUrl);
-
-const terminal = new TerminalEmulator(document.getElementById('terminal')!, "dotnet tool run dotnet-ef ");
 
 window.addEventListener('resize', () => terminal.fit());
 
 terminal.writeLine("- Migration service -");
 
 const hub = new signalR.HubConnectionBuilder()
-  .withUrl(serverUrl + "/terminal")
+  .withUrl(serverUrl)
   .withAutomaticReconnect()
   .configureLogging(signalR.LogLevel.Information)
   .build();
@@ -32,12 +32,18 @@ hub.on("EndOfResponse", () => {
   endOfResponseEvent.handleEvent();
 });
 
-await hub.start();
+try {
+  await hub.start();
+} catch (error: unknown) {
+  terminal.writeLine(String(error));
+  throw error;
+}
+
 
 await endOfResponseEvent.createPromise();
 
 while (true) {
-  const command: string = await terminal.prompt();
+  const command: string = await terminal.prompt("dotnet tool run dotnet-ef ");
   terminal.newLine();
 
   const endOfResponsePromise = endOfResponseEvent.createPromise();

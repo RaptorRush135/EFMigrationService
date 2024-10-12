@@ -51,7 +51,9 @@ public static class MigrationServiceDistributedApplicationBuilderExtensions
 
         return builder
             .AddNpmApp(name, location, "dev")
-            .WithEnvironment(MigrationServiceEnvironmentVariables.MigrationClientServerUrl, serverEndpoint)
+            .WithEnvironment(
+                MigrationServiceEnvironmentVariables.MigrationClientServerUrl,
+                () => Path.Join(serverEndpoint.Url, "terminal").Replace('\\', '/'))
             .WithPort(actualPort);
     }
 }

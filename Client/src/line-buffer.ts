@@ -3,13 +3,17 @@ import { Terminal } from "@xterm/xterm";
 export class LineBuffer {
     private line: string = "";
 
-    public constructor(
-        private readonly terminal: Terminal,
-        private readonly cursorOffset: number) {
+    private cursorOffset: number = 0;
+
+    public constructor(private readonly terminal: Terminal) {
     }
 
     public get buffer(): string {
         return this.line;
+    }
+
+    public updateCursorOffset(cursorOffset: number): void {
+        this.cursorOffset = cursorOffset;
     }
 
     public async write(data: string): Promise<void> {

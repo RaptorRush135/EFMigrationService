@@ -6,12 +6,11 @@ import { EventToPromiseConverter } from "./event-to-promise-converter";
 export class TerminalEmulator {
     private readonly terminal: Terminal;
     private readonly fitAddon: FitAddon;
-    private readonly promptString: string;
     private readonly lineBuffer: LineBuffer;
     private readonly newLineEvent: EventToPromiseConverter<string> = new EventToPromiseConverter();
     private inputEnabled: boolean = false;
 
-    public constructor(readonly container: HTMLElement, prompt?: string) {
+    public constructor(readonly container: HTMLElement) {
         this.terminal = new Terminal({ cursorBlink: true });
 
         this.fitAddon = new FitAddon();
@@ -21,10 +20,9 @@ export class TerminalEmulator {
 
         this.fitAddon.fit();
 
-        this.promptString = prompt ?? "";
         this.listenToInput();
 
-        this.lineBuffer = new LineBuffer(this.terminal, this.promptString.length);
+        this.lineBuffer = new LineBuffer(this.terminal);
     }
 
     public writeLine(data: string): void {
@@ -36,9 +34,10 @@ export class TerminalEmulator {
         this.terminal.write('\r\n');
     }
 
-    public prompt(): Promise<string> {
+    public async prompt(prompt: string): Promise<string> {
+        await this.writePrompt(prompt);
+        this.lineBuffer.updateCursorOffset(prompt.length);
         this.inputEnabled = true;
-        this.writePrompt();
 
         return this.newLineEvent.createPromise();
     }
@@ -57,9 +56,14 @@ export class TerminalEmulator {
         this.newLineEvent.handleEvent(buffer);
     }
 
-    private writePrompt(): void {
+    private writePrompt(prompt: string): Promise<void> {
         this.newLine();
-        this.terminal.write(this.promptString);
+
+        return new Promise(resolve => {
+            this.terminal.write(prompt, () => {
+                resolve();
+            });
+        });
     }
 
     private listenToInput(): void {
