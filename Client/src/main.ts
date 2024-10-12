@@ -4,6 +4,8 @@ import * as signalR from "@microsoft/signalr";
 
 const terminal = new TerminalEmulator(document.getElementById("terminal")!);
 
+window.addEventListener("resize", () => terminal.fit());
+
 let serverUrl: string | undefined = process.env.SERVER_URL;
 
 if (!serverUrl) {
@@ -11,8 +13,6 @@ if (!serverUrl) {
 } else {
   terminal.writeLine(`Server URL: ${serverUrl}`);
 }
-
-window.addEventListener("resize", () => terminal.fit());
 
 terminal.writeLine("- Migration service -");
 
