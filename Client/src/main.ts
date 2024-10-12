@@ -1,18 +1,18 @@
-import { EventToPromiseConverter } from './event-to-promise-converter';
-import { TerminalEmulator } from './terminal-emulator';
+import { EventToPromiseConverter } from "./event-to-promise-converter";
+import { TerminalEmulator } from "./terminal-emulator";
 import * as signalR from "@microsoft/signalr";
 
-const terminal = new TerminalEmulator(document.getElementById('terminal')!);
+const terminal = new TerminalEmulator(document.getElementById("terminal")!);
 
 let serverUrl: string | undefined = process.env.SERVER_URL;
 
 if (!serverUrl) {
-  serverUrl = await terminal.prompt("Server URL: ")
+  serverUrl = await terminal.prompt("Server URL: ");
 } else {
   terminal.writeLine(`Server URL: ${serverUrl}`);
 }
 
-window.addEventListener('resize', () => terminal.fit());
+window.addEventListener("resize", () => terminal.fit());
 
 terminal.writeLine("- Migration service -");
 
@@ -38,7 +38,6 @@ try {
   terminal.writeLine(String(error));
   throw error;
 }
-
 
 await endOfResponseEvent.createPromise();
 
