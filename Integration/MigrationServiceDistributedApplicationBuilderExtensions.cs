@@ -23,8 +23,8 @@ public static class MigrationServiceDistributedApplicationBuilderExtensions
     /// <param name="builder">
     /// The distributed application builder to which the migration client will be added.
     /// </param>
-    /// <param name="migrationServerBuilder">
-    /// The resource builder for the migration server, used to retrieve the server endpoint.
+    /// <param name="serverEndpoint">
+    /// The endpoint reference for the migration server, used to retrieve the server endpoint URL.
     /// </param>
     /// <param name="location">
     /// The directory in which the migration client is located.
@@ -40,14 +40,12 @@ public static class MigrationServiceDistributedApplicationBuilderExtensions
     /// </returns>
     public static IResourceBuilder<NodeAppResource> AddMigrationClient(
         this IDistributedApplicationBuilder builder,
-        IResourceBuilder<ProjectResource> migrationServerBuilder,
+        EndpointReference serverEndpoint,
         string location,
         string name = "MigrationClient",
         int? port = null)
     {
         int actualPort = port ?? PortFinder.GetAvailablePort();
-
-        EndpointReference serverEndpoint = migrationServerBuilder.GetEndpoint("http");
 
         return builder
             .AddNpmApp(name, location, "dev")
