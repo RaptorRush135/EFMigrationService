@@ -23,9 +23,9 @@ internal static class EFCommandHandlerServiceCollectionExtensions
         string startupProject = configuration.GetRequired(MigrationServiceEnvironmentVariables.StartupProject);
 
         var commandHandler = new EFCommandHandler(
-            MigrationServiceEnvironmentVariables.TargetProject,
+            $"--{MigrationServiceEnvironmentVariables.TargetProject}",
             targetProject,
-            MigrationServiceEnvironmentVariables.StartupProject,
+            $"--{MigrationServiceEnvironmentVariables.StartupProject}",
             startupProject);
 
         services.AddSingleton(commandHandler);

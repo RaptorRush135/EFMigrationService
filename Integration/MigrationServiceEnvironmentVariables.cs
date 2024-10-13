@@ -6,17 +6,23 @@
 public static class MigrationServiceEnvironmentVariables
 {
     /// <summary>
-    /// Command line argument for specifying the target project when running migrations.
+    /// Environment variable that determines the target project for the migration.
+    /// <see href="https://learn.microsoft.com/en-us/ef/core/cli/dotnet#target-project-and-startup-project">
+    /// More info
+    /// </see>.
     /// </summary>
-    public const string TargetProject = "--project";
+    public const string TargetProject = "project";
 
     /// <summary>
-    /// Command line argument for specifying the startup project when running migrations.
+    /// Environment variable that determines the startup project for the migration.
+    /// <see href="https://learn.microsoft.com/en-us/ef/core/cli/dotnet#target-project-and-startup-project">
+    /// More info
+    /// </see>.
     /// </summary>
-    public const string StartupProject = "--startup-project";
+    public const string StartupProject = "startup-project";
 
     /// <summary>
-    /// Environment variable that enables database persistence mode.
+    /// Environment variable that determines the database persistence mode.
     /// <para>
     /// The data will not be saved between executions if not enabled.
     /// </para>
@@ -29,7 +35,7 @@ public static class MigrationServiceEnvironmentVariables
     public const string DatabaseMigrationMode = "DB_MIGRATION";
 
     /// <summary>
-    /// The environment variable key used to specify the server URL for the migration client.
+    /// The environment variable that determines the server URL for the migration client.
     /// </summary>
     public const string MigrationClientServerUrl = "SERVER_URL";
 }
