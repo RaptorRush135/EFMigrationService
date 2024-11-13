@@ -5,10 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting" Version="8.2.1" />
-    <PackageReference Include="Aspire.Hosting.NodeJs" Version="8.2.1" />
+    <PackageReference Include="Aspire.Hosting" Version="9.0.0" />
+    <PackageReference Include="Aspire.Hosting.NodeJs" Version="9.0.0" />
 
-    <PackageReference Include="CliWrap" Version="3.6.6" PrivateAssets="compile" />
+    <PackageReference Include="CliWrap" Version="3.6.7" PrivateAssets="compile" />
   </ItemGroup>
 
   <ItemGroup>
