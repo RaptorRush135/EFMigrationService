@@ -1,5 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="EFMigrationService.Integration-override.props" Condition="Exists('EFMigrationService.Integration-override.props')" />
+
   <PropertyGroup>
     <OutputType>Library</OutputType>
   </PropertyGroup>
@@ -11,9 +13,13 @@
     <PackageReference Include="CliWrap" Version="3.6.7" PrivateAssets="compile" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <RaptorUtilsPathPrefix Condition="'$(RaptorUtilsPathPrefix)' == ''">..</RaptorUtilsPathPrefix>
+  </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\RaptorUtils\Core\RaptorUtils.Core.csproj" />
-    <ProjectReference Include="..\RaptorUtils\Aspire\Aspire.Hosting.NodeJs\RaptorUtils.Aspire.Hosting.NodeJs.csproj" />
+    <ProjectReference Include="$(RaptorUtilsPathPrefix)\RaptorUtils\Core\RaptorUtils.Core.csproj" />
+    <ProjectReference Include="$(RaptorUtilsPathPrefix)\RaptorUtils\Aspire\Aspire.Hosting.NodeJs\RaptorUtils.Aspire.Hosting.NodeJs.csproj" />
   </ItemGroup>
 
 </Project>
