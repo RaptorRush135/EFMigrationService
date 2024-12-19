@@ -5,10 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CliWrap" Version="3.6.7" />
+    <PackageReference Include="CliWrap" Version="3.7.0" />
 
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client.Core" Version="9.0.0" />
-    
     <PackageReference Include="Serilog.Sinks.OpenTelemetry" Version="4.1.1" />
   </ItemGroup>
 
